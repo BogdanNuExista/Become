@@ -1,0 +1,13 @@
+- Install npm;
+- npx create-expo-app --template (default typescript)
+- npx expo install firebase
+
+
+
+
+
+
+Stupid bugs:
+- Set-ExecutionPolicy RemoteSigned -Scope CurrentUser (if you have execution policy error)
+- npm uninstall @react-native-firebase/app @react-native-firebase/auth @react-native-firebase/firestore
+  (if you installed these, well they suck and you need to uninstall them and use the expo ones)

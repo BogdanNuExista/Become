@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "284872338175",
+    "project_id": "become-1adb0",
+    "storage_bucket": "become-1adb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284872338175:android:aac61a6a4f7b3d015e7aca",
+        "android_client_info": {
+          "package_name": "com.bogdan.become"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpIHp6FFBIWv-yxuyPXuRa6wLynE-FzoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
