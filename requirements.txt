@@ -1,13 +1,15 @@
+How to get started:
 - Install npm;
 - npx create-expo-app --template (default typescript)
 - npx expo install firebase
-
-
-
-
-
 
 Stupid bugs:
 - Set-ExecutionPolicy RemoteSigned -Scope CurrentUser (if you have execution policy error)
 - npm uninstall @react-native-firebase/app @react-native-firebase/auth @react-native-firebase/firestore
   (if you installed these, well they suck and you need to uninstall them and use the expo ones)
+
+Stupid react stuff:
+- npx expo install @react-navigation/native
+- npx expo install @react-navigation/native-stack
+- npx expo install @react-navigation/bottom-tabs
+- npx expo install react-native-gesture-handler react-native-reanimated
