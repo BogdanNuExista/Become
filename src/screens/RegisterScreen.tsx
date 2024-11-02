@@ -37,6 +37,7 @@ export default function RegisterScreen() {
         value={password}
       />
       <Button title="Register" onPress={handleRegister} color="#6a0dad" />
+      <View style={{ marginVertical: 5 }} />
       <Button
         title="Back to Login"
         onPress={() => navigation.navigate('Login')}

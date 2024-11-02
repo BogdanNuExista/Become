@@ -36,6 +36,7 @@ export default function LoginScreen() {
         value={password}
       />
       <Button title="Login" onPress={handleLogin} color="#6a0dad" />
+      <View style={{ marginVertical: 5 }} />
       <Button
         title="Create Account"
         onPress={() => navigation.navigate('Register')}
