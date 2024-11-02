@@ -4,7 +4,7 @@ import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { auth } from '../firebaseConfig';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
-import { LoginScreenNavigationProp } from '../types/Navigation';
+import { LoginScreenNavigationProp } from '../types/navigation';
 
 export default function RegisterScreen() {
   const [email, setEmail] = useState('');
