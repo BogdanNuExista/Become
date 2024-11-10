@@ -14,7 +14,7 @@ export default function LoginScreen() {
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigation.navigate('Home');
+        navigation.navigate('AvatarSelection');
       })
       .catch(error => alert(error.message));
   };

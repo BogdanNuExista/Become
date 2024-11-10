@@ -5,6 +5,7 @@ export type RootStackParamList = {
   Login: undefined;
   Home: undefined;
   Register: undefined;
+  AvatarSelection: undefined;
 };
 
 export type LoginScreenNavigationProp = NativeStackNavigationProp<
@@ -20,6 +21,11 @@ export type HomeScreenNavigationProp = NativeStackNavigationProp<
 export type RegisterScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
   'Register'
+>;
+
+export type AvatarSelectionScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'AvatarSelection'
 >;
 
 
