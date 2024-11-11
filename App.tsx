@@ -6,6 +6,7 @@ import RegisterScreen from './src/screens/RegisterScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import { RootStackParamList } from './src/types/navigation';
 import AvatarSelectionScreen from './src/screens/AvatarSelectionScreen';
+import ActivitySelectionScreen from './src/screens/ActivitySelectionScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -21,7 +22,10 @@ export default function App() {
         component={AvatarSelectionScreen} 
         options={{ headerShown: false }} 
         />
+
+        <Stack.Screen name="ActivitySelection" component={ActivitySelectionScreen} options={{ headerShown: false }} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+} 
