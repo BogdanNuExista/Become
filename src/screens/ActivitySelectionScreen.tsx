@@ -6,6 +6,7 @@ import LottieView from 'lottie-react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ActivitySelectionScreenNavigationProp } from '../types/navigation';
 
+
 interface Activity {
     id: string;
     name: string;

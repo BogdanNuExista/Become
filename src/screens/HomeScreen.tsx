@@ -5,6 +5,7 @@ import { auth } from '../firebaseConfig';
 import LottieView from 'lottie-react-native';
 import { HomeScreenNavigationProp } from '../types/navigation';
 import { useNavigation } from '@react-navigation/native';
+import Header from '../components/Header';
 
 interface UserProfile {
   avatarType: 'male' | 'female';
@@ -50,15 +51,15 @@ export default function HomeScreen() {
   if (loading) {
     return (
       <View style={styles.container}>
-        <ActivityIndicator size="large" color="#6a0dad" />
+        <Header title="Home" />
       </View>
     );
   }
 
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Home</Text>
+      <View style={styles.container}>
+        <Header title="Home" />
       </View>
 
       {/* Activity Overview Section */}
