@@ -12,9 +12,15 @@ const Header = () => {
       <TouchableOpacity onPress={() => navigation.navigate('Home')}>
         <Text style={[styles.headerText, route.name === 'Home' && styles.boldText]}>Home</Text>
       </TouchableOpacity>
+
       <TouchableOpacity onPress={() => navigation.navigate('ActivitySelection')}>
         <Text style={styles.headerText}>Activities</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate('QuizzScreen')}>
+        <Text style={styles.headerText}>Quizz</Text>
+      </TouchableOpacity>
+
     </View>
   );
 };

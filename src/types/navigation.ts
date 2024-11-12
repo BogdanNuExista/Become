@@ -7,6 +7,8 @@ export type RootStackParamList = {
   Register: undefined;
   AvatarSelection: undefined;
   ActivitySelection: undefined;
+  QuizzScreen: undefined;
+  EndlessQuizz: { topic: string };
 };
 
 export type LoginScreenNavigationProp = NativeStackNavigationProp<
@@ -34,5 +36,14 @@ export type ActivitySelectionScreenNavigationProp = NativeStackNavigationProp<
   'ActivitySelection'
 >;
 
+export type QuizzScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'QuizzScreen'
+>;
+
+export type EndlessQuizzScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'EndlessQuizz'
+>;
 
 
