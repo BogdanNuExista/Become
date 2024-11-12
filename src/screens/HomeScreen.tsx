@@ -51,7 +51,7 @@ export default function HomeScreen() {
   if (loading) {
     return (
       <View style={styles.container}>
-        <Header  />
+        <Header />
       </View>
     );
   }
@@ -84,7 +84,7 @@ export default function HomeScreen() {
       <View style={styles.activitySection}>
         <Text style={styles.sectionTitle}>Recent Activities</Text>
         {userProfile?.activities && userProfile.activities.length > 0 ? (
-          userProfile.activities.map((activity) => (
+          userProfile.activities.slice(-10).map((activity) => (
             <View key={activity.id} style={styles.activityCard}>
               <Text style={styles.activityName}>{activity.name}</Text>
               <Text style={styles.activityXP}>+{activity.xpGained} XP</Text>
