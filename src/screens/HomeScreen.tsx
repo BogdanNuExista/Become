@@ -1,9 +1,10 @@
-// src/screens/HomeScreen.tsx
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, TouchableOpacity, ScrollView } from 'react-native';
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { auth } from '../firebaseConfig';
 import LottieView from 'lottie-react-native';
+import { HomeScreenNavigationProp } from '../types/navigation';
+import { useNavigation } from '@react-navigation/native';
 
 interface UserProfile {
   avatarType: 'male' | 'female';
@@ -21,6 +22,8 @@ export default function HomeScreen() {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const database = getDatabase();
+
+  const navigation = useNavigation<HomeScreenNavigationProp>();
 
   useEffect(() => {
     if (!auth.currentUser) return;
@@ -53,7 +56,7 @@ export default function HomeScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Home</Text>
       </View>
@@ -93,7 +96,14 @@ export default function HomeScreen() {
           <Text style={styles.noActivityText}>No activities yet</Text>
         )}
       </View>
-    </View>
+
+      <TouchableOpacity
+        style={styles.activityButton}
+        onPress={() => navigation.navigate('ActivitySelection')}
+      >
+        <Text style={styles.activityButtonText}>Select Activity</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }
 
@@ -101,6 +111,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f3e5f5',
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    backgroundColor: '#f3e5f5',
+    paddingBottom: 20, // Add padding to ensure the button is not cut off
   },
   header: {
     backgroundColor: '#6a0dad',
@@ -176,5 +191,19 @@ const styles = StyleSheet.create({
     color: '#666',
     fontSize: 16,
     marginTop: 20,
+  },
+  activityButton: {
+    backgroundColor: '#6a0dad',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    marginHorizontal: 20,
+    marginTop: 20,
+  },
+  activityButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
