@@ -5,7 +5,7 @@ import { auth } from '../firebaseConfig';
 import LottieView from 'lottie-react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ActivitySelectionScreenNavigationProp } from '../types/navigation';
-
+import Header from '../components/Header';
 
 interface Activity {
     id: string;
@@ -83,9 +83,7 @@ const ActivitySelectionScreen = () => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.headerText}>Activity Selection</Text>
-            </View>
+            <Header />
 
             <FlatList
                 data={activities}

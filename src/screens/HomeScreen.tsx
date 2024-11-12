@@ -51,7 +51,7 @@ export default function HomeScreen() {
   if (loading) {
     return (
       <View style={styles.container}>
-        <Header title="Home" />
+        <Header  />
       </View>
     );
   }
@@ -59,7 +59,7 @@ export default function HomeScreen() {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
-        <Header title="Home" />
+        <Header  />
       </View>
 
       {/* Activity Overview Section */}
