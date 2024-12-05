@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, TouchableOpacity, ScrollView } from 'react-native';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, update, get } from 'firebase/database';
 import { auth } from '../firebaseConfig';
 import LottieView from 'lottie-react-native';
 import { ActivitySelectionScreenNavigationProp } from '../types/navigation';
@@ -22,6 +22,7 @@ interface UserProfile {
 export default function HomeScreen() {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [activitiesCleaned, setActivitiesCleaned] = useState(false);
   const database = getDatabase();
 
   const navigation = useNavigation<ActivitySelectionScreenNavigationProp>();
@@ -48,10 +49,37 @@ export default function HomeScreen() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!loading && userProfile && !activitiesCleaned) {
+      deleteActivitiesExceptLastTen();
+      setActivitiesCleaned(true);
+    }
+  }, [loading, userProfile]);
+
+
+  const deleteActivitiesExceptLastTen = async () => {
+    if (!auth.currentUser) return;
+
+    try {
+      const userRef = ref(database, 'users/' + auth.currentUser.uid);
+      const snapshot = await get(userRef);
+      const userData = snapshot.val();
+
+      if (userData && userData.activities) {
+        const lastTenActivities = userData.activities.slice(-10);
+        await update(userRef, { activities: lastTenActivities });
+      }
+    } catch (error) {
+      console.error('Error deleting old activities:', error);
+    }
+  };
+
+
   if (loading) {
     return (
       <View style={styles.container}>
         <Header />
+        <ActivityIndicator size="large" color="#6a0dad" />
       </View>
     );
   }
