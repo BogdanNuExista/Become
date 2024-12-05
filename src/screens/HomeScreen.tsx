@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ActivityIndicator, TouchableOpacity, ScrollView
 import { getDatabase, ref, onValue } from 'firebase/database';
 import { auth } from '../firebaseConfig';
 import LottieView from 'lottie-react-native';
-import { HomeScreenNavigationProp } from '../types/navigation';
+import { ActivitySelectionScreenNavigationProp } from '../types/navigation';
 import { useNavigation } from '@react-navigation/native';
 import Header from '../components/Header';
 
@@ -24,7 +24,7 @@ export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
   const database = getDatabase();
 
-  const navigation = useNavigation<HomeScreenNavigationProp>();
+  const navigation = useNavigation<ActivitySelectionScreenNavigationProp>();
 
   useEffect(() => {
     if (!auth.currentUser) return;
